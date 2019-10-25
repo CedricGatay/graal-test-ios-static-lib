@@ -14,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let queue = DispatchQueue.init(label: "background")
+        queue.async {
+            //print("AZEAZEAZEAZ \(azeqsd_graal_method())")
+            run_main(1, nil)
+        }
+        
+        
+        //graal_method()
+    
         return true
     }
 
