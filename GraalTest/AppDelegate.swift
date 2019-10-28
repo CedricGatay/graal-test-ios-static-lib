@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let queue = DispatchQueue.init(label: "background")
         queue.async {
             //print("AZEAZEAZEAZ \(azeqsd_graal_method())")
-            run_main(1, nil)
+            //run_main(1, nil)
         }
         
         

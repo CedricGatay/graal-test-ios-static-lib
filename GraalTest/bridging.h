@@ -9,6 +9,7 @@
 #ifndef bridging_h
 #define bridging_h
 
-int azeqsd_graal_method(void);
-
+int azeqsd_graal_method(int a, int b);
+int start_method();
+int stop_method();
 #endif /* bridging_h */

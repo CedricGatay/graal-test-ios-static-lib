@@ -14,20 +14,7 @@
 		7B03E8E92362F8640098A6EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B03E8E82362F8640098A6EF /* Preview Assets.xcassets */; };
 		7B03E8EC2362F8640098A6EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B03E8EA2362F8640098A6EF /* LaunchScreen.storyboard */; };
 		7B03E90A23632D9D0098A6EF /* bridging.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B03E90923632D9D0098A6EF /* bridging.c */; };
-		7B03E90E236336870098A6EF /* hellofx.hellofx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E90D236336870098A6EF /* hellofx.hellofx.a */; };
-		7B03E918236336EB0098A6EF /* libverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E90F236336EB0098A6EF /* libverify.a */; };
-		7B03E919236336EB0098A6EF /* libsunec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E910236336EB0098A6EF /* libsunec.a */; };
-		7B03E91A236336EB0098A6EF /* libj2pkcs11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E911236336EB0098A6EF /* libj2pkcs11.a */; };
-		7B03E91B236336EB0098A6EF /* libnio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E912236336EB0098A6EF /* libnio.a */; };
-		7B03E91C236336EB0098A6EF /* libnet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E913236336EB0098A6EF /* libnet.a */; };
-		7B03E91D236336EB0098A6EF /* libprefs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E914236336EB0098A6EF /* libprefs.a */; };
-		7B03E91E236336EB0098A6EF /* libjimage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E915236336EB0098A6EF /* libjimage.a */; };
-		7B03E91F236336EB0098A6EF /* libjava.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E916236336EB0098A6EF /* libjava.a */; };
-		7B03E920236336EB0098A6EF /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E917236336EB0098A6EF /* libzip.a */; };
-		7B03E925236337340098A6EF /* liblibchelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E921236337340098A6EF /* liblibchelper.a */; };
-		7B03E926236337340098A6EF /* libjvm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E922236337340098A6EF /* libjvm.a */; };
-		7B03E927236337340098A6EF /* libstrictmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E923236337340098A6EF /* libstrictmath.a */; };
-		7B03E928236337340098A6EF /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B03E924236337340098A6EF /* libffi.a */; };
+		7B283D8F2366E8040032F7DF /* hellofx.hellofx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B283D8E2366E8040032F7DF /* hellofx.hellofx.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,23 +28,10 @@
 		7B03E8ED2362F8640098A6EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B03E8F32362F8A30098A6EF /* GraalTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraalTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B03E8FE23631D520098A6EF /* graal_isolate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graal_isolate.h; sourceTree = "<group>"; };
-		7B03E8FF23631D520098A6EF /* hellofx.hellofx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hellofx.hellofx.h; sourceTree = "<group>"; };
 		7B03E90923632D9D0098A6EF /* bridging.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bridging.c; sourceTree = "<group>"; };
-		7B03E90D236336870098A6EF /* hellofx.hellofx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = hellofx.hellofx.a; sourceTree = "<group>"; };
-		7B03E90F236336EB0098A6EF /* libverify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libverify.a; sourceTree = "<group>"; };
-		7B03E910236336EB0098A6EF /* libsunec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsunec.a; sourceTree = "<group>"; };
-		7B03E911236336EB0098A6EF /* libj2pkcs11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libj2pkcs11.a; sourceTree = "<group>"; };
-		7B03E912236336EB0098A6EF /* libnio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnio.a; sourceTree = "<group>"; };
-		7B03E913236336EB0098A6EF /* libnet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnet.a; sourceTree = "<group>"; };
-		7B03E914236336EB0098A6EF /* libprefs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprefs.a; sourceTree = "<group>"; };
-		7B03E915236336EB0098A6EF /* libjimage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjimage.a; sourceTree = "<group>"; };
-		7B03E916236336EB0098A6EF /* libjava.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjava.a; sourceTree = "<group>"; };
-		7B03E917236336EB0098A6EF /* libzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzip.a; sourceTree = "<group>"; };
-		7B03E921236337340098A6EF /* liblibchelper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblibchelper.a; sourceTree = "<group>"; };
-		7B03E922236337340098A6EF /* libjvm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjvm.a; sourceTree = "<group>"; };
-		7B03E923236337340098A6EF /* libstrictmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libstrictmath.a; sourceTree = "<group>"; };
-		7B03E924236337340098A6EF /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
 		7B03E92923633A780098A6EF /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
+		7B03E92F236355920098A6EF /* hellofx.hellofx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hellofx.hellofx.h; sourceTree = "<group>"; };
+		7B283D8E2366E8040032F7DF /* hellofx.hellofx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = hellofx.hellofx.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,20 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B03E919236336EB0098A6EF /* libsunec.a in Frameworks */,
-				7B03E91D236336EB0098A6EF /* libprefs.a in Frameworks */,
-				7B03E91F236336EB0098A6EF /* libjava.a in Frameworks */,
-				7B03E91C236336EB0098A6EF /* libnet.a in Frameworks */,
-				7B03E918236336EB0098A6EF /* libverify.a in Frameworks */,
-				7B03E91A236336EB0098A6EF /* libj2pkcs11.a in Frameworks */,
-				7B03E90E236336870098A6EF /* hellofx.hellofx.a in Frameworks */,
-				7B03E926236337340098A6EF /* libjvm.a in Frameworks */,
-				7B03E920236336EB0098A6EF /* libzip.a in Frameworks */,
-				7B03E927236337340098A6EF /* libstrictmath.a in Frameworks */,
-				7B03E925236337340098A6EF /* liblibchelper.a in Frameworks */,
-				7B03E928236337340098A6EF /* libffi.a in Frameworks */,
-				7B03E91E236336EB0098A6EF /* libjimage.a in Frameworks */,
-				7B03E91B236336EB0098A6EF /* libnio.a in Frameworks */,
+				7B283D8F2366E8040032F7DF /* hellofx.hellofx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,21 +53,8 @@
 				7B03E8DE2362F8620098A6EF /* GraalTest */,
 				7B03E8DD2362F8620098A6EF /* Products */,
 				7B03E8FE23631D520098A6EF /* graal_isolate.h */,
-				7B03E8FF23631D520098A6EF /* hellofx.hellofx.h */,
-				7B03E90D236336870098A6EF /* hellofx.hellofx.a */,
-				7B03E911236336EB0098A6EF /* libj2pkcs11.a */,
-				7B03E916236336EB0098A6EF /* libjava.a */,
-				7B03E915236336EB0098A6EF /* libjimage.a */,
-				7B03E913236336EB0098A6EF /* libnet.a */,
-				7B03E912236336EB0098A6EF /* libnio.a */,
-				7B03E914236336EB0098A6EF /* libprefs.a */,
-				7B03E910236336EB0098A6EF /* libsunec.a */,
-				7B03E90F236336EB0098A6EF /* libverify.a */,
-				7B03E917236336EB0098A6EF /* libzip.a */,
-				7B03E924236337340098A6EF /* libffi.a */,
-				7B03E922236337340098A6EF /* libjvm.a */,
-				7B03E921236337340098A6EF /* liblibchelper.a */,
-				7B03E923236337340098A6EF /* libstrictmath.a */,
+				7B03E92F236355920098A6EF /* hellofx.hellofx.h */,
+				7B283D8E2366E8040032F7DF /* hellofx.hellofx.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,13 +239,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ljava",
-					"-ljvm",
-					"-llibchelper",
-					"-lnio",
-					"-lzip",
-					"-lnet",
-					"-lstrictmath",
 					"-lpthread",
 					"-lz",
 					"-ldl",
@@ -357,13 +298,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
-					"-ljava",
-					"-ljvm",
-					"-llibchelper",
-					"-lnio",
-					"-lzip",
-					"-lnet",
-					"-lstrictmath",
 					"-lpthread",
 					"-lz",
 					"-ldl",

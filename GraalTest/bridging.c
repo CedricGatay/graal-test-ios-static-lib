@@ -9,18 +9,20 @@
 #include <stdio.h>
 #include "graal_isolate.h"
 #include "hellofx.hellofx.h"
-int azeqsd_graal_method(void){
+
+graal_create_isolate_params_t isolate_params;
+graal_isolate_t* isolate;
+graal_isolatethread_t* thread;
+
+int azeqsd_graal_method(int a, int b){
     int ret;
-    graal_create_isolate_params_t isolate_params;
-    graal_isolate_t* isolate;
-    graal_isolatethread_t* thread;
     
     ret = graal_create_isolate(&isolate_params, &isolate, &thread);
     if (ret != 0){
         fprintf(stderr, "graal_create_isolate: %d\n", ret);
         return 1;
     }
-    int val = SampleCall__add__a3f8314ffff39c86fbca8fceb58f40cf28050ee7(thread, 1, 20);
+    int val = SampleCall__add__a3f8314ffff39c86fbca8fceb58f40cf28050ee7(thread, a, b);
     
     ret = graal_tear_down_isolate(thread);
     
@@ -29,4 +31,44 @@ int azeqsd_graal_method(void){
         return 1;
     }
     return val;
+}
+
+int start_method(){
+    int ret;
+    
+    ret = graal_create_isolate(&isolate_params, &isolate, &thread);
+    if (ret != 0){
+        fprintf(stderr, "graal_create_isolate: %d\n", ret);
+        return 1;
+    }
+    SampleCall__start__89bf82071c0ea72ae6b9ca8e698e30770700e653(thread);
+    
+    ret = graal_tear_down_isolate(thread);
+
+    if (ret != 0){
+        fprintf(stderr, "graal_tear_down_isolate: %d\n", ret);
+        return 1;
+    }
+    return 0;
+}
+
+
+int stop_method(){
+    int ret;
+    
+    ret = graal_create_isolate(&isolate_params, &isolate, &thread);
+    if (ret != 0){
+        fprintf(stderr, "graal_create_isolate: %d\n", ret);
+        return 1;
+    }
+    
+    SampleCall__stop__f8eb9aba3ae3f98b5d07368204cd00a4879a765d(thread);
+    
+    ret = graal_tear_down_isolate(thread);
+
+    if (ret != 0){
+        fprintf(stderr, "graal_tear_down_isolate: %d\n", ret);
+        return 1;
+    }
+    return 0;
 }
