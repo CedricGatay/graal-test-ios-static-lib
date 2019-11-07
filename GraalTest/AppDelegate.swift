@@ -16,10 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let queue = DispatchQueue.init(label: "background")
         queue.async {
-            //print("AZEAZEAZEAZ \(azeqsd_graal_method())")
-            //run_main(1, nil)
+            print("AZEAZEAZEAZ")
+            guard let fileURL = Bundle.main.url(forResource:"libsecp256k1", withExtension: "dylib")
+                else {
+                    print("Unable to get path of app")
+                    return
+            }
+            var components = fileURL.pathComponents
+            components.removeLast()
+            components.removeFirst()
+            let path =  components.joined(separator: "/")
+
+            let args = ["",
+                        "-Djava.library.path=/\(path)",
+                        "-Djava.home=/\(path)",
+                        "-Djava.vm.vendor=The Android Project",
+                        "-Djavax.net.ssl.trustStore=/\(path)/lib/security/cacerts"
+            ]
+
+            // Create [UnsafeMutablePointer<Int8>]:
+            var cargs = args.map { strdup($0) }
+            run_main(Int32(args.count), &cargs)
+            for ptr in cargs { free(ptr) }
         }
-        
         
         //graal_method()
     
@@ -37,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+        // Use this method to release any resources that were specific to thecongé discarded scenes, as they will not return.
     }
 
 

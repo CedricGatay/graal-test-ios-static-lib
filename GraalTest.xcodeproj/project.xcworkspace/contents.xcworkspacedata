@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/cgatay/Documents/work/acinq/graal-test-ios/GraalTest/libsqlitejdbc.jnilib">
+   </FileRef>
+   <FileRef
       location = "self:GraalTest.xcodeproj">
    </FileRef>
 </Workspace>

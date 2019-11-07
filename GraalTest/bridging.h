@@ -12,4 +12,7 @@
 int azeqsd_graal_method(int a, int b);
 int start_method();
 int stop_method();
+
+// int _Java_jdk_net_MacOSXSocketOptions_keepAliveOptionsSupported0();
 #endif /* bridging_h */
+

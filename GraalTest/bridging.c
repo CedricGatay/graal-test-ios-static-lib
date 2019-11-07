@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include "graal_isolate.h"
-#include "hellofx.hellofx.h"
+#include "hellofx.main.h"
 
 graal_create_isolate_params_t isolate_params;
 graal_isolate_t* isolate;
@@ -22,7 +22,7 @@ int azeqsd_graal_method(int a, int b){
         fprintf(stderr, "graal_create_isolate: %d\n", ret);
         return 1;
     }
-    int val = SampleCall__add__a3f8314ffff39c86fbca8fceb58f40cf28050ee7(thread, a, b);
+    int val = 0 ;//SampleCall__add__a3f8314ffff39c86fbca8fceb58f40cf28050ee7(thread, a, b);
     
     ret = graal_tear_down_isolate(thread);
     
@@ -36,14 +36,17 @@ int azeqsd_graal_method(int a, int b){
 int start_method(){
     int ret;
     
-    ret = graal_create_isolate(&isolate_params, &isolate, &thread);
-    if (ret != 0){
-        fprintf(stderr, "graal_create_isolate: %d\n", ret);
-        return 1;
+    if (thread == NULL){
+        ret = graal_create_isolate(&isolate_params, &isolate, &thread);
+        if (ret != 0){
+            fprintf(stderr, "graal_create_isolate: %d\n", ret);
+            return 1;
+        }
     }
-    SampleCall__start__89bf82071c0ea72ae6b9ca8e698e30770700e653(thread);
+    //SampleCall__start__89bf82071c0ea72ae6b9ca8e698e30770700e653(thread);
     
-    ret = graal_tear_down_isolate(thread);
+    // tearing down make app crash, as actor are still running but the isolate thread is * dead *
+   // ret = graal_tear_down_isolate(thread);
 
     if (ret != 0){
         fprintf(stderr, "graal_tear_down_isolate: %d\n", ret);
@@ -56,15 +59,16 @@ int start_method(){
 int stop_method(){
     int ret;
     
-    ret = graal_create_isolate(&isolate_params, &isolate, &thread);
+/*    ret = graal_create_isolate(&isolate_params, &isolate, &thread);
     if (ret != 0){
         fprintf(stderr, "graal_create_isolate: %d\n", ret);
         return 1;
-    }
+    }*/
     
-    SampleCall__stop__f8eb9aba3ae3f98b5d07368204cd00a4879a765d(thread);
+    //SampleCall__stop__f8eb9aba3ae3f98b5d07368204cd00a4879a765d(thread);
     
-    ret = graal_tear_down_isolate(thread);
+    // do not tear down too quickly, actors need to die properly.
+    // ret = graal_tear_down_isolate(thread);
 
     if (ret != 0){
         fprintf(stderr, "graal_tear_down_isolate: %d\n", ret);
