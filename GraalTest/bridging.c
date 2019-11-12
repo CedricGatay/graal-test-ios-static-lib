@@ -251,3 +251,19 @@ int CUseCallback( my_cb_t cb, int checkOnReturn )
     }
     return 0;
 }
+
+
+void run_framework(my_cb_t cb, int argc, char** argv){
+    global_callback = cb;
+    graal_isolatethread_t *thread = NULL;
+    if (graal_create_isolate(NULL, NULL, &thread) != 0) {
+      fprintf(stderr, "error on isolate creation or attach\n");
+      //return 1;
+    }
+    
+    SampleCall__run__eclair__99f9f442468de56c5a3c1e5a775225280906eb25(thread, argc, argv);
+    if (graal_tear_down_isolate(thread) != 0) {
+       fprintf(stderr, "shutdown error\n");
+      // return 1;
+     }
+}

@@ -4,7 +4,6 @@
 #include "graal_isolate.h"
 #include "mydata.h"
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
@@ -36,6 +35,8 @@ int SampleCall__add__a3f8314ffff39c86fbca8fceb58f40cf28050ee7(graal_isolatethrea
 void SampleCall__start__89bf82071c0ea72ae6b9ca8e698e30770700e653(graal_isolatethread_t*);
 
 void SampleCall__stop__f8eb9aba3ae3f98b5d07368204cd00a4879a765d(graal_isolatethread_t*);
+
+void SampleCall__run__eclair__99f9f442468de56c5a3c1e5a775225280906eb25(graal_isolatethread_t*, int, char**);
 
 int Java_org_pkg_apinative_Native_add(struct JNIEnv_*, void *, long long int, int, int);
 

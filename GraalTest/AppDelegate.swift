@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             // Create [UnsafeMutablePointer<Int8>]:
             var cargs = args.map { strdup($0) }
-            self.doCallback()
+            self.doCallback(&cargs)
             /*two_way({ (result: AnyObject) in
                     print("result : \(result)")
             })*/
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate{
 
 
-    func doCallback(){
+    func doCallback(_ cargs : inout [UnsafeMutablePointer<Int8>?]){
         /**
          * A better callback implementation.
          *
@@ -88,6 +88,8 @@ extension AppDelegate{
         let OneWayCallback : my_cb_t = {( p : Optional<UnsafeMutableRawPointer> )-> () in
             print( "In OneWayCallback(), received a pointer. " );
             let obj = String(cString: p!.assumingMemoryBound(to: CChar.self))
+            let notification: Notification = Notification(name: NSNotification.Name(rawValue: "Test"), object: obj)
+            NotificationCenter.default.post(notification)
             print(obj)
         }
 
@@ -96,7 +98,7 @@ extension AppDelegate{
         /**
          * Call the C API giving it the 1-way callback.
          */
-        two_way(OneWayCallback)
+        run_framework(OneWayCallback, Int32(cargs.count), &cargs)
         //CUseCallback( OneWayCallback, 1 )
     }
 }
