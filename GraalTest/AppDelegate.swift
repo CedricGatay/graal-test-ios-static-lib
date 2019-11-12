@@ -36,7 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             // Create [UnsafeMutablePointer<Int8>]:
             var cargs = args.map { strdup($0) }
-            run_main(Int32(args.count), &cargs)
+            self.doCallback()
+            /*two_way({ (result: AnyObject) in
+                    print("result : \(result)")
+            })*/
+            //run_main(Int32(args.count), &cargs)
             for ptr in cargs { free(ptr) }
         }
         
@@ -62,3 +66,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension AppDelegate{
+
+
+    func doCallback(){
+        /**
+         * A better callback implementation.
+         *
+         * This one casts the void pointer to UnsafeMutablePointer<APIStruct>,
+         * then uses its memory to construct an instance of APIStruct.  Even if
+         * tight packing is used by the C code, the APIStruct will correctly
+         * reflect the data placed there by the C code.  This is as long as
+         * the pack pragma is available via the bridging header.
+         *
+         * It is called OneWayCallback because whatever changes it makes to
+         * the APIStruct provided to it by C code won't be visible to the
+         * C code.  This is because we modify a copy of the structure
+         * populated by the C code.
+         */
+        let OneWayCallback : my_cb_t = {( p : Optional<UnsafeMutableRawPointer> )-> () in
+            print( "In OneWayCallback(), received a pointer. " );
+            let obj = String(cString: p!.assumingMemoryBound(to: CChar.self))
+            print(obj)
+        }
+
+        
+        
+        /**
+         * Call the C API giving it the 1-way callback.
+         */
+        two_way(OneWayCallback)
+        //CUseCallback( OneWayCallback, 1 )
+    }
+}

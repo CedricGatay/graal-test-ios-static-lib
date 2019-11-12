@@ -47,6 +47,7 @@
 		7B03E8FE23631D520098A6EF /* graal_isolate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graal_isolate.h; sourceTree = "<group>"; };
 		7B03E90923632D9D0098A6EF /* bridging.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bridging.c; sourceTree = "<group>"; };
 		7B03E92923633A780098A6EF /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
+		7B496CFE237AAF05009D1E18 /* mydata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mydata.h; sourceTree = "<group>"; };
 		7BA93B602374234A007E67FD /* libhello.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libhello.dylib; sourceTree = "<group>"; };
 		7BA93B6B23743101007E67FD /* libsecp256k1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsecp256k1.dylib; sourceTree = "<group>"; };
 		7BA93B6E23743B49007E67FD /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsecp256k1.a; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 				7BA93B6B23743101007E67FD /* libsecp256k1.dylib */,
 				7BA93B6E23743B49007E67FD /* libsecp256k1.a */,
 				7BA93B7423746154007E67FD /* libsqlitejdbc.dylib */,
+				7B496CFE237AAF05009D1E18 /* mydata.h */,
 			);
 			sourceTree = "<group>";
 		};

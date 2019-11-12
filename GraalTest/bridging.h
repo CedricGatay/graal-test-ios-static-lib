@@ -10,9 +10,27 @@
 #define bridging_h
 
 int azeqsd_graal_method(int a, int b);
-int start_method();
-int stop_method();
+int start_method(void);
+int stop_method(void);
 
-// int _Java_jdk_net_MacOSXSocketOptions_keepAliveOptionsSupported0();
+
+
+
+/**
+ * Function pointer type for the callback.  Callback receives a void
+ * pointer, which is then treated as APIStruct * in the callback.
+ */
+typedef void (*my_cb_t)( void * );
+
+int two_way(my_cb_t);
+
+/**
+ * C function using the callback.  It creates an instance of APIStruct, prints
+ * it out, and gives it via void pointer to the callback identified by the 1st
+ * parameter. If the 2nd parameter is !=0, then the struct is also printed out
+ * after the callback returns.
+ */
+int CUseCallback( my_cb_t, int );
+
 #endif /* bridging_h */
 
