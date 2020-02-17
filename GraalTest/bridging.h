@@ -9,8 +9,11 @@
 #ifndef bridging_h
 #define bridging_h
 
+#include "eclair.h"
+
+int bridge_send_message(Message_Send_Struct* message);
+
 int azeqsd_graal_method(int a, int b);
-int start_method(void);
 int stop_method(void);
 
 
@@ -33,6 +36,8 @@ int two_way(my_cb_t);
 int CUseCallback( my_cb_t, int );
 
 void run_framework(my_cb_t cb, int argc, char** argv);
+
+void run_graal();
 
 #endif /* bridging_h */
 

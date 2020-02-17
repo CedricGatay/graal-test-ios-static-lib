@@ -14,10 +14,11 @@
 		7B03E8E92362F8640098A6EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B03E8E82362F8640098A6EF /* Preview Assets.xcassets */; };
 		7B03E8EC2362F8640098A6EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B03E8EA2362F8640098A6EF /* LaunchScreen.storyboard */; };
 		7B03E90A23632D9D0098A6EF /* bridging.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B03E90923632D9D0098A6EF /* bridging.c */; };
+		7B6D4A1823FAC6E2005EB528 /* EclairMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6D4A1723FAC6E2005EB528 /* EclairMessage.swift */; };
+		7B745EE82391071C00FB4382 /* hellofx.hellofx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B745EE62391071C00FB4382 /* hellofx.hellofx.a */; };
 		7BA93B7323743C6C007E67FD /* libsecp256k1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BA93B6B23743101007E67FD /* libsecp256k1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7BA93B7523746189007E67FD /* libsqlitejdbc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BA93B7423746154007E67FD /* libsqlitejdbc.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7BA93B7D23756C59007E67FD /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA93B7C23756C59007E67FD /* lib */; };
-		7BC5D2E2236842C7004A8542 /* hellofx.main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC5D2E0236842C7004A8542 /* hellofx.main.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,13 +49,15 @@
 		7B03E90923632D9D0098A6EF /* bridging.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bridging.c; sourceTree = "<group>"; };
 		7B03E92923633A780098A6EF /* bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		7B496CFE237AAF05009D1E18 /* mydata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mydata.h; sourceTree = "<group>"; };
+		7B6D4A1723FAC6E2005EB528 /* EclairMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclairMessage.swift; sourceTree = "<group>"; };
+		7B745EE62391071C00FB4382 /* hellofx.hellofx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = hellofx.hellofx.a; sourceTree = "<group>"; };
+		7B745EE72391071C00FB4382 /* hellofx.hellofx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hellofx.hellofx.h; sourceTree = "<group>"; };
 		7BA93B602374234A007E67FD /* libhello.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libhello.dylib; sourceTree = "<group>"; };
 		7BA93B6B23743101007E67FD /* libsecp256k1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsecp256k1.dylib; sourceTree = "<group>"; };
 		7BA93B6E23743B49007E67FD /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsecp256k1.a; sourceTree = "<group>"; };
 		7BA93B7423746154007E67FD /* libsqlitejdbc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlitejdbc.dylib; path = "/Users/cgatay/Documents/work/acinq/graal-test-ios/GraalTest/libsqlitejdbc.dylib"; sourceTree = "<absolute>"; };
 		7BA93B7C23756C59007E67FD /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
-		7BC5D2E0236842C7004A8542 /* hellofx.main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = hellofx.main.a; sourceTree = "<group>"; };
-		7BC5D2E1236842C7004A8542 /* hellofx.main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hellofx.main.h; sourceTree = "<group>"; };
+		7BEF00C223FAA35C00462DD7 /* eclair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = eclair.h; path = "/Users/cgatay/Documents/work/acinq/graal-test-ios/GraalTest/eclair.h"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC5D2E2236842C7004A8542 /* hellofx.main.a in Frameworks */,
+				7B745EE82391071C00FB4382 /* hellofx.hellofx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +75,14 @@
 		7B03E8D32362F8620098A6EF = {
 			isa = PBXGroup;
 			children = (
+				7BEF00C223FAA35C00462DD7 /* eclair.h */,
+				7B745EE62391071C00FB4382 /* hellofx.hellofx.a */,
+				7B745EE72391071C00FB4382 /* hellofx.hellofx.h */,
 				7BA93B7C23756C59007E67FD /* lib */,
 				7B03E8F32362F8A30098A6EF /* GraalTest-Bridging-Header.h */,
 				7B03E8DE2362F8620098A6EF /* GraalTest */,
 				7B03E8DD2362F8620098A6EF /* Products */,
 				7B03E8FE23631D520098A6EF /* graal_isolate.h */,
-				7BC5D2E0236842C7004A8542 /* hellofx.main.a */,
-				7BC5D2E1236842C7004A8542 /* hellofx.main.h */,
 				7BA93B602374234A007E67FD /* libhello.dylib */,
 				7BA93B6B23743101007E67FD /* libsecp256k1.dylib */,
 				7BA93B6E23743B49007E67FD /* libsecp256k1.a */,
@@ -107,6 +111,7 @@
 				7B03E8E72362F8640098A6EF /* Preview Content */,
 				7B03E90923632D9D0098A6EF /* bridging.c */,
 				7B03E92923633A780098A6EF /* bridging.h */,
+				7B6D4A1723FAC6E2005EB528 /* EclairMessage.swift */,
 			);
 			path = GraalTest;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				7B03E90A23632D9D0098A6EF /* bridging.c in Sources */,
 				7B03E8E22362F8620098A6EF /* SceneDelegate.swift in Sources */,
 				7B03E8E42362F8620098A6EF /* ContentView.swift in Sources */,
+				7B6D4A1823FAC6E2005EB528 /* EclairMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

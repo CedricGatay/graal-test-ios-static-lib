@@ -77,25 +77,26 @@ graal_isolate_t* graal_get_isolate(graal_isolatethread_t* thread);
 int graal_detach_thread(graal_isolatethread_t* thread);
 
 /*
- * Using the context of the isolate thread from the first argument, detaches the
- * threads in an array pointed to by the second argument, with the length of the
- * array given in the third argument. All of the passed threads must be in the
- * same isolate, including the first argument. None of the threads to detach may
- * execute Java code at the time of the call or later without reattaching first,
- * or their behavior will be entirely undefined. The current thread may be part of
- * the array, however, using detach_thread() should be preferred for detaching only
- * the current thread.
- * Returns 0 on success, or a non-zero value on failure.
- */
-int graal_detach_threads(graal_isolatethread_t* thread, graal_isolatethread_t** array, int length);
-
-/*
  * Tears down the passed isolate, waiting for any attached threads to detach from
  * it, then discards the isolate's objects, threads, and any other state or context
  * that is associated with it.
  * Returns 0 on success, or a non-zero value on failure.
  */
 int graal_tear_down_isolate(graal_isolatethread_t* isolateThread);
+
+/*
+ * In the isolate of the passed isolate thread, detach all those threads that were
+ * externally started (not within Java, which includes the "main thread") and were
+ * attached to the isolate afterwards. Afterwards, all threads that were started
+ * within Java undergo a regular shutdown process, followed by the tear-down of the
+ * entire isolate, which detaches the current thread and discards the objects,
+ * threads, and any other state or context associated with the isolate.
+ * None of the manually attached threads targeted by this function may be executing
+ * Java code at the time when this function is called or at any point in the future
+ * or this will cause entirely undefined (and likely fatal) behavior.
+ * Returns 0 on success, or a non-zero value on (non-fatal) failure.
+ */
+int graal_detach_all_threads_and_tear_down_isolate(graal_isolatethread_t* isolateThread);
 
 #if defined(__cplusplus)
 }

@@ -16,20 +16,27 @@ struct ContentView: View {
     
     
     var body: some View {
-        List{
+        ScrollView{
         VStack{
             TextField("A", text: $a)
             TextField("B", text: $b)
             Text("Result : \(result)")
             Text("LogMsg : \(logMsg.msg)")
             Button(action: {self.result = self.compute()}) {
-                Text("Combien")
+                Text("Combien").padding()
             }
-            Button(action: { start_method() }) {
-                Text("Start")
+            Button(action: {
+                let msg = testMessageStruct(message: EclairMessage(
+                        switchServer: SwitchServer(uri: "03933884aaf1d6b108397e5efe5c86bcf2d8ca8d2f700eda99db9214fc2712b134@34.250.234.192:9735")
+                    )
+                )
+                bridge_send_message(msg)
+                freeStruct(ptr: msg)
+            }) {
+                Text("Start").padding()
             }
             Button(action: {stop_method()}) {
-                Text("Stop")
+                Text("Stop").padding()
             }
         }
         }

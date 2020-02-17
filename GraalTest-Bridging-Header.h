@@ -1,2 +1,3 @@
-#include "hellofx.main.h"
+#include "hellofx.hellofx.h"
 #include "GraalTest/bridging.h"
+#include "eclair.h"

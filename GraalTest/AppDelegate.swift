@@ -98,7 +98,30 @@ extension AppDelegate{
         /**
          * Call the C API giving it the 1-way callback.
          */
+        //run_graal()
         run_framework(OneWayCallback, Int32(cargs.count), &cargs)
         //CUseCallback( OneWayCallback, 1 )
     }
+    
+    
+}
+
+func testMessageStruct(message: EclairMessage) -> UnsafeMutablePointer<Message_Send_Struct>{
+    let args = ["producer", "topic", "tags", "keys", message.json]
+    let ptrs = args.map {strdup($0) }
+    let res = Message_Send_Struct(producer_name: ptrs[0], topic: ptrs[1], tags: ptrs[2], keys: ptrs[3], body: ptrs[4])
+   // ptrs.forEach { free($0) }
+    print(res)
+    let pointer = UnsafeMutablePointer<Message_Send_Struct>.allocate(capacity: 1)
+    pointer.pointee = res
+    return pointer
+}
+
+func freeStruct(ptr: UnsafeMutablePointer<Message_Send_Struct>){
+    free(ptr.pointee.producer_name)
+    free(ptr.pointee.topic)
+    free(ptr.pointee.tags)
+    free(ptr.pointee.keys)
+    free(ptr.pointee.body)
+    ptr.deallocate()
 }
