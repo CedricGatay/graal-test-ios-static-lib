@@ -35,7 +35,7 @@ int two_way(my_cb_t);
  */
 int CUseCallback( my_cb_t, int );
 
-void run_framework(my_cb_t cb, int argc, char** argv);
+void run_framework(my_cb_t cb, my_cb_t e_to_n_cb, int argc, char** argv);
 
 void run_graal();
 

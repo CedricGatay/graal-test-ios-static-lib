@@ -22,6 +22,7 @@ struct ContentView: View {
             TextField("B", text: $b)
             Text("Result : \(result)")
             Text("LogMsg : \(logMsg.msg)")
+            Text("LogMsg : \(logMsg.eclairMsg)")
             Button(action: {self.result = self.compute()}) {
                 Text("Combien").padding()
             }
@@ -50,14 +51,22 @@ struct ContentView: View {
 
 class LogMsg: ObservableObject{
     @Published var msg: String = ""
+    @Published var eclairMsg: String = ""
     
     init(){
         NotificationCenter.default.addObserver(self, selector: #selector(onChange(_:)), name: NSNotification.Name(rawValue: "Test"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onEclairToNative(_:)), name: NSNotification.Name(rawValue: "EclairToNative"), object: nil)
     }
     
     @objc func onChange(_ sender: NSNotification){
         DispatchQueue.main.async {
             self.msg += "\n" + (sender.object as? String ?? "N/A")
+        }
+    }
+    
+    @objc func onEclairToNative(_ sender: NSNotification){
+        DispatchQueue.main.async {
+            self.eclairMsg += "\n" + (sender.object as? String ?? "N/A")
         }
     }
     

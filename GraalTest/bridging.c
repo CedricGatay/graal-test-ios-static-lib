@@ -84,12 +84,20 @@ int stop_method(){
 }
 
 my_cb_t global_callback;
+my_cb_t eclair_to_native_callback;
 
 
 void c_print(void *thread, char* cstr) {
     printf("C: %s\n", cstr);
     if (global_callback != NULL){
         global_callback(cstr);
+    }
+}
+
+void eclair_to_native(void *thread, char* cstr){
+    printf("%s", cstr);
+    if (eclair_to_native_callback != NULL){
+        eclair_to_native_callback(cstr);
     }
 }
 
@@ -114,8 +122,9 @@ void run_graal(){
     run_main(1, args);
 }
 
-void run_framework(my_cb_t cb, int argc, char** argv){
+void run_framework(my_cb_t cb, my_cb_t e_to_n_cb, int argc, char** argv){
     global_callback = cb;
+    eclair_to_native_callback = e_to_n_cb;
     graal_isolatethread_t *thread = NULL;
     if (graal_create_isolate(NULL, NULL, &thread) != 0) {
       fprintf(stderr, "error on isolate creation or attach\n");

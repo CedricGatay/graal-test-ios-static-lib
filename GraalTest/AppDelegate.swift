@@ -93,13 +93,21 @@ extension AppDelegate{
             print(obj)
         }
 
+        let eclairToNativeCallBack : my_cb_t = {( p : Optional<UnsafeMutableRawPointer> )-> () in
+            print( "In EclairToNativeCallback(), received a pointer. " );
+            let obj = String(cString: p!.assumingMemoryBound(to: CChar.self))
+            let notification: Notification = Notification(name: NSNotification.Name(rawValue: "EclairToNative"), object: obj)
+            NotificationCenter.default.post(notification)
+            print(obj)
+        }
+        
         
         
         /**
          * Call the C API giving it the 1-way callback.
          */
         //run_graal()
-        run_framework(OneWayCallback, Int32(cargs.count), &cargs)
+        run_framework(OneWayCallback, eclairToNativeCallBack, Int32(cargs.count), &cargs)
         //CUseCallback( OneWayCallback, 1 )
     }
     
